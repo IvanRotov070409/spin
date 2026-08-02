@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Mini App</title>
+    <!-- Подключаем SDK Telegram -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: var(--tg-theme-bg-color, #fff);
+        color: var(--tg-theme-text-color, #000);
+        margin: 0;
+        padding: 16px;
+      }
+      h1 { margin-bottom: 8px; }
+      .user-info { color: var(--tg-theme-hint-color, #888); margin-bottom: 24px; }
+      button {
+        background-color: var(--tg-theme-button-color, #2481cc);
+        color: var(--tg-theme-button-text-color, #fff);
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      button:active { opacity: 0.8; }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">Привет!</h1>
+    <div class="user-info" id="user-info"></div>
+    <button id="send-data-btn">Отправить данные в бота</button>
+
+    <script>
+      const tg = window.Telegram.WebApp;
+      tg.ready();
+
+      // Включаем расширенный режим (на весь экран)
+      tg.expand();
+
+      const user = tg.initDataUnsafe?.user;
+      const titleEl = document.getElementById('title');
+      const infoEl = document.getElementById('user-info');
+
+      if (user) {
+        titleEl.textContent = `Привет, ${user.first_name}!`;
+        infoEl.textContent = `ID: ${user.id}, Username: @${user.username || 'нет'}`;
+      } else {
+        infoEl.textContent = 'Вы не авторизованы в Telegram или это тестовый запуск.';
+      }
+
+      document.getElementById('send-data-btn').addEventListener('click', () => {
+        // Отправляем данные обратно в бота через callback_data
+        tg.sendData(JSON.stringify({ action: 'hello_from_mini_app', time: Date.now() }));
+        // Или можно закрыть: tg.close();
+      });
+    </script>
+  </body>
+</html>
