@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+button{
+    background: none;
+    border: none;
+    color: #fff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+@media (max-width: 767px) {
+  h1, button {
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+  }
+
+  html, body {
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  body {
+    background: #0D0C18;
+    /* display: flex и align-items:center тут ломают скролл — убираем */
+    /* оставляем только если нужно центрировать что-то конкретное внутри контейнера */
+  }
+
+  .warning_pc {
+    display: none;
+    position: fixed;
+  }
+
+  .load_ {
+    background: #0D0C18;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .load_star {
+    width: 141px;
+    padding-bottom: 30px;
+  }
+
+  /* main_tel — теперь это обычный контейнер в потоке */
+  .main_tel {
+    width: 100%;
+    /* position: fixed — убрать, иначе скролл не работает */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* чтобы страница могла скроллиться, main_tel не должен перекрывать весь экран */
+  }
+
+  .head {
+    width: 100%;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .img_profile_main {
+    width: 55px;
+    border-radius: 50%;
+    border: 1px solid #41337B;
+  }
+
+  .but_promo_main {
+    background: #201B38;
+    width: 120px;
+    height: 35px;
+    color: #C4B5FD;
+    border: 1px solid #41337B;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .but_promo_main img {
+    padding-right: 5px;
+    width: 18px;
+  }
+
+  .but_balance_main {
+    background: #201B38;
+    width: 140px;
+    height: 35px;
+    color: #C4B5FD;
+    border: 1px solid #41337B;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img_but_bet_main {
+    padding-left: 8px;
+    width: 22px;
+  }
+
+  .img_but_gram_main {
+    width: 22px;
+  }
+
+  /* slide — убираем жёсткую высоту, чтобы контент мог расти */
+  .slide {
+    width: 100%;
+    /* height: 230px; ← убрать, иначе ломается скролл */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .slide img {
+    max-width: 90%;       /* вместо жёстких 350px — адаптив */
+    height: auto;         /* сохранить пропорции */
+    border-radius: 15px;
+    object-fit: contain;
+  }
+
+  .slide_1 {
+    border: 1px solid #BDBD82;
+  }
+
+  .slide_button {
+    padding-top: 5px;
+    display: flex;       /* обязательно для gap */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .slide_but {
+    background-color: rgba(195, 181, 253, 0.47);
+    border: none;        /* если кнопки без рамки — лучше явно убрать */
+    border-radius: 15px;
+    padding: 5px 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+
+  .slide_but.active,
+  .slide_but[aria-pressed="true"] {
+    background-color: #c3b5fd;
+    box-shadow: 0 0 8px rgba(195, 181, 253, 0.5);
+    padding: 5px 14px;
+  }
+
+  .head_text_event {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .text_event {
+    text-align: left;
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    font-size: 18px;
+    border-bottom: 1px solid #ffffff51;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .mini_game_ {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .multiplier, .case, .event_create {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 15px;
+  }
+  .futer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    border-top: 1px solid rgba(252, 252, 252, 0.384);
+    height: 80px;
+    margin-top: 30px;
+  }
+  .but_help, .but_faq{
+    background: #201B38;
+    width: 120px;
+    height: 35px;
+    color: #C4B5FD;
+    border: 1px solid #41337B;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img{
+        margin-right: 5px;
+        margin-bottom: 2px;
+    }
+  }
+  .futer_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    >h1{
+        color: rgba(252, 252, 252, 0.384);
+        font-size: 8px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  /* Стили для ПК и планшетов (шире 768px) */
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    h1{
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+    }
+    .main_tel{
+        display: none;
+    }
+    .load_{
+        display: none;
+    }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to bottom, #0D0C18, #29264B);
+    }
+    .warning_pc{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .head_text{
+        font-size: 28px;
+        padding-top: 35px;
+    }
+    .sub_text{
+        font-size: 18px;
+        padding-top: 20px;
+        font-weight: 600;
+    }
+    .img_warn_pc{
+        width: 186px;
+        height: 186px;
+    }
+}
