@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="css.css">
+  </head>
+  <body>
+    <div class="load_" style="background: #0D0C18;">
+      <img src="img/star.gif" class="load_star">
+      <h1>Загрузка...</h1>
+    </div>
+
+    <div class="promocode">
+      <div class="promocode_head">
+        <h1>Промокод</h1>
+      </div>
+      <div class="promocode_text">
+        <div class="top-text">
+          <button class="back" onclick="document.querySelector('.promocode').style.display='none'"><- Назад</button>
+          <h1 class="title">Введите промокод</h1>
+        </div>
+        <input type="text" placeholder="Промокод" class="input_promocode">
+        <button class="but_promocode">Активировать</button>
+      </div>
+
+    </div>
+
+    <div class="main_tel">
+      <div class="head">
+        <button class="but_promo_main" onclick="window.location.href='index.html'" id="back_button"><- НАЗАД</button>
+        <img src="img/profile_img.jpg" class="img_profile_main">
+        <button class="but_balance_main" onclick="window.location.href='settings.html'" id="balance_button"><img src="img/Gram_logo.svg" class="img_but_gram_main">12.05 GRAM</button>
+      </div>
+      <div class="pay_nav">
+        <div class="baner_pay">
+          <div class="text_baner">
+            <h1 class="head_text">Пополняйте аккаунт</h1>
+            <h1 class="head_sub">через СБП</h1>
+            <h1 class="under_text">без комиссий</h1>
+          </div>
+          <div class="image_sbp">
+            <img src="img/sbp.svg" class="img_sbp">
+          </div>
+        </div>
+        <div class="pay_place">
+          
+          <input type="text" placeholder="Введите сумму" class="input_pay_num">
+          <input type="text" placeholder="Промокод" class="input_pay_promocode">
+          <div class="variant_pay">
+            <button class="but_pay_variant active">
+              <img src="img/sbp.svg" class="img_but_pay">
+            </button>
+            <button class="but_pay_variant">
+              <img src="img/crypto.png" class="img_but_pay" style="width: 50px; border-radius: 20%;">
+            </button>
+          </div>
+          <button class="but_pay">Оплатить</button>
+        </div>
+        <div class="chanal_url">
+          <img src="img/Telegram_logo.png" class="img_chanal">
+          <div class="text_chanal_url">
+            <h1 class="head_text">Наш Telegram</h1>
+            <h1 class="sub_text">Канал</h1>
+          </div>
+          <button class="but_chanal" onclick="window.location.href='t.me/spin_gram'">Открыть</button>
+      </div>
+      <div class="history-pay">
+        <h1 class="head_text">История платежей</h1>
+        <div class="plus_pay">
+          <div class="arrow-up"><img src="img/arrow_up.svg" alt="Вверх"></div>
+          <div class="head_text_place">
+            <h1 class="head_text">Пополнение</h1>
+            <h1 class="sub_text">GRAM</h1>
+          </div>
+          <div class="text_pay_place">
+            <h1 class="head_text_pay">+0.5 GRAM</h1>
+            <h1 class="sub_text_pay">06.08.2026 21:20</h1>
+          </div>
+        </div>
+        <div class="minus_pay">
+          <div class="arrow-down"><img src="img/arrow_down.svg" alt="Вниз"></div>
+            <div class="head_text_place">
+              <h1 class="head_text">Вывод</h1>
+              <h1 class="sub_text">GRAM</h1>
+            </div>
+            <div class="text_pay_place_down">
+              <h1 class="head_text_pay_down">-3.5 GRAM</h1>
+              <h1 class="sub_text_pay_down">06.08.2026 21:20</h1>
+            </div>
+          </div>
+        <div class="minus_pay">
+          <div class="arrow-down"><img src="img/arrow_down.svg" alt="Вниз"></div>
+            <div class="head_text_place">
+              <h1 class="head_text">Вывод</h1>
+              <h1 class="sub_text">GRAM</h1>
+            </div>
+            <div class="text_pay_place_down">
+              <h1 class="head_text_pay_down">-3.5 GRAM</h1>
+              <h1 class="sub_text_pay_down">06.08.2026 21:20</h1>
+            </div>
+          </div>
+        <div class="minus_pay">
+          <div class="arrow-down"><img src="img/arrow_down.svg" alt="Вниз"></div>
+            <div class="head_text_place">
+              <h1 class="head_text">Вывод</h1>
+              <h1 class="sub_text">GRAM</h1>
+            </div>
+            <div class="text_pay_place_down">
+              <h1 class="head_text_pay_down">-3.5 GRAM</h1>
+              <h1 class="sub_text_pay_down">06.08.2026 21:20</h1>
+            </div>
+          </div>
+        <div class="plus_pay">
+          <div class="arrow-up"><img src="img/arrow_up.svg" alt="Вверх"></div>
+          <div class="head_text_place">
+            <h1 class="head_text">Пополнение</h1>
+            <h1 class="sub_text">GRAM</h1>
+          </div>
+          <div class="text_pay_place">
+            <h1 class="head_text_pay">+0.5 GRAM</h1>
+            <h1 class="sub_text_pay">06.08.2026 21:20</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning_pc">
+      <img src="img/moan.gif"class="img_warn_pc">
+      <h1 class="head_text">Платформа доступена только с телефона</h1>
+      <h1 class="sub_text">Запустите приложение с телефон или через <br> телеграм @spin_gram </h1>
+    </div>
+
+    <script src="active_pay.js"></script>
+    <script>
+      window.addEventListener('load', () => {
+        const loader = document.querySelector('.load_');
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 300);
+        }
+      });
+    </script>
+    <script src="slide.js"></script>
+    <script src="slide_img.js"></script>
+  </body>
+</html>

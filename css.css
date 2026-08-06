@@ -8,7 +8,6 @@ button{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 @media (max-width: 767px) {
   h1, button {
@@ -120,8 +119,13 @@ button{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;               /* обрезка, если картинка чуть вылезет */
     align-items: center;
     padding: 10px 0;
+  }
+  .slide_1:not(.hidden) {
+    opacity: 1;                     /* видимая картинка */
+    pointer-events: auto;           /* можно кликать, если нужно */
   }
 
   .slide img {
@@ -130,9 +134,16 @@ button{
     border-radius: 15px;
     object-fit: contain;
   }
-
+  .slide_1.hidden {
+    display: none;
+  }
   .slide_1 {
-    border: 1px solid #BDBD82;
+    border: 1px solid #c7c7c655;
+    opacity: 0;                     /* изначально невидима */
+    transition: opacity 0.4s ease;  /* плавное появление */
+    pointer-events: none; 
+    object-fit: cover;       /* заполняет блок без искажений */
+    display: block; 
   }
 
   .slide_button {
@@ -226,10 +237,335 @@ button{
         font-size: 8px;
     }
   }
-}
+  .promocode {
+    position: fixed;          /* вместо absolute — чтобы не зависел от родителя */
+    top: 0;
+    left: 0;
+    width: 100vw;             /* на всю ширину экрана */
+    height: 100vh;            /* на всю высоту экрана */
+    z-index: 9999;            /* максимально высокий слой */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;                /* страховка от браузерных отступов */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* обязательно для Safari */
+    background: rgba(13, 12, 24, 0.7);  /* твой цвет #0D0C18 + прозрачность */
+  }
+  .promocode_head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .promocode_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #201B38;
+    width: 90%;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+  }
+  .top-text{
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .title, .back{
+      padding-bottom: 10px;
+      font-size: 12px;
+      color: rgba(252, 252, 252, 0.774);
+      width: 100%;
+      text-align: left;
+    }
+  .title{
+      text-align: right;
+  }
+  .img_tag{
+    width: 25px;
+    margin-right: 5px;
+  }
+  .input_promocode{
+      background: #201B38;
+      border: 1px solid #41337B;
+      border-radius: 15px;
+      width: 100%;
+      height: 35px;
+      color: #C4B5FD;
+      padding-left: 10px;
+  }
+  .input_promocode:active, .input_promocode:focus{
+      border: none;
+  }
+  .but_promocode{
+    background: #C4B5FD;
+    width: 80%;
+    height: 35px;
+    color: #201B38;
+    border: 1px solid #41337B;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+  #back_button{
+    width: 100px;
+  }
+  #balance_button{
+    width: 120px;
+  }
+  .pay_nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .baner_pay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(to bottom, #2E97CB, #2c8fc1);
+    width: 90%;
+    border-radius: 15px 15px 0px 0px;
+  }
+  .text_baner{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-right: 15px;
+  }
+  .head_sub{
+    font-size: 14px;
+  }
+  .head_text{
+    margin-top: 25px;
+    font-size: 16px;
+  }
+  .under_text{
+    font-size: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: rgba(252, 252, 252, 0.603);
+  }
+  .img_sbp{
+    width: 120px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .pay_place{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #201B38;
+    width: 90%;
+    border-radius: 0px 0px 15px 15px;
+  }
+  .but_pay{
+    background: rgba(0, 0, 0, 0.638);
+    width: 150px;
+    margin-bottom: 10px;
+    height: 40px;
+    color: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .input_pay_num, .input_pay_promocode {
+      background: #00000083;
+      font-weight: 600;
+      font-size: 14px;
+      color: #ffffff;
+      border-radius: 30px;
+      width: 90%;
+      padding: 15px;
+      margin-top: 10px;
+      padding-left: 20px;
+      border: none;
+  }
+  .input_pay_num:input-text, .input_pay_promocode:input-text{
+    color: #ffffff;
+  }
+  .input_pay_num:focus, .input_pay_promocode:focus {
+    color: #fff;
+    outline: none;
+    padding-left: 20px;
+    border: none;
+  }
 
+  .variant_pay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .but_pay_variant {
+    border: none; /* обязательно */
+    background: #00000083;
+    width: 160px;
+    height: 100px;
+    color: #C4B5FD;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .but_pay_variant.active {
+    border: 1px solid #2E97CB;
+  }
+  .chanal_url{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
+    background: #201B38;
+    border-radius: 15px;
+    width: 90%;
+    height: 70px;
+  }
+  .but_chanal{
+    background: #34AAE5;
+    width: 100px;
+    height: 30px;
+    color: #fff;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .text_chanal_url{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    margin-right: 40px;
+    font-weight: 500;
+  }
+  .img_chanal{
+    width: 40px;
+  }
+  .head_text{
+    font-size: 14px;
+  }
+  .sub_text{
+    font-size: 10px;
+    margin-bottom: 20px;
+    color: rgba(252, 252, 252, 0.603);
+  }
+  .history-pay{
+    width: 90%;
+    text-align: left;
+    display: flex;
+    
+  }
+  .head_text{
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+  }
+  .history-pay{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 90%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  .plus_pay, .minus_pay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    border: 1px solid #41337B;
+    border-radius: 15px;
+  }
+  .arrow-up {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #5CBB59, rgba(41, 38, 75, 0));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img{
+        width: 20px;
+    }
+  }
+  .arrow-down {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #BB595B,#5cbb5900);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img{
+        width: 20px;
+    }
+  }
+  .head_text_place{
+    padding-left: 10px;
+  }
+  .text_pay_place{
+    text-align: right;
+    margin-left: 80px;
+  }
+  .text_pay_place_down{
+    text-align: right;
+    margin-left: 130px;
+  }
+  .head_text_pay{
+    color: #5CBB59;
+    font-size: 14px;
+  }
+  .sub_text_pay{
+    color: #5cbb5988;
+    font-size: 8px;
+  }
+  .head_text_pay_down{
+    color: #BB595B;
+    font-size: 14px;
+  }
+  .sub_text_pay_down{
+    color: #bb595b69;
+    font-size: 8px;
+  }
+  .head_text_bottom{
+    margin-top: 25px;
+    font-size: 16px;
+  }
+  .sub_text_bottom{
+    font-size: 10px;
+    margin-bottom: 20px;
+    color: rgba(252, 252, 252, 0.603);
+  }
+
+}
 @media (min-width: 768px) {
   /* Стили для ПК и планшетов (шире 768px) */
+    .promocode{
+        display: none;
+    }
     html, body {
         height: 100%;
         margin: 0;

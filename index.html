@@ -13,18 +13,36 @@
       <h1>Загрузка...</h1>
     </div>
 
+    <div class="promocode">
+      <div class="promocode_head">
+        <h1>Промокод</h1>
+      </div>
+      <div class="promocode_text">
+        <div class="top-text">
+          <button class="back" onclick="document.querySelector('.promocode').style.display='none'"><- Назад</button>
+          <h1 class="title">Введите промокод</h1>
+        </div>
+        <input type="text" placeholder="Промокод" class="input_promocode">
+        <button class="but_promocode">Активировать</button>
+      </div>
+
+    </div>
+
     <div class="main_tel">
       <div class="head">
-        <button class="but_promo_main"><img src="img/Gift.svg" class="img_but_promo_main">ПРОМОКОД</button>
+        <button class="but_promo_main" onclick="document.querySelector('.promocode').style.display='flex'"><img src="img/Gift.svg" class="img_but_promo_main">ПРОМОКОД</button>
         <img src="img/profile_img.jpg" class="img_profile_main">
-        <button class="but_balance_main"><img src="img/Gram_logo.svg" class="img_but_gram_main">12.05 GRAM<img src="img/bet.svg" class="img_but_bet_main"></button>
+        <button class="but_balance_main" onclick="window.location.href='settings.html'"><img src="img/Gram_logo.svg" class="img_but_gram_main">12.05 GRAM<img src="img/bet.svg" class="img_but_bet_main"></button>
       </div>
       <div class="slide">
-        <img src="img/slide_1.jpg" class="slide_1">
+        <img src="img/slide_1.jpg" class="slide_1" id="slide_1">
+        <img src="img/slide_2.png" class="slide_1 hidden" id="slide_2"> <!-- разные картинки -->
+        <img src="img/slide_3.png" class="slide_1 hidden" id="slide_3">
+
         <div class="slide_button">
           <button class="slide_but active" aria-pressed="true" id="slide_but_1"></button>
-          <button class="slide_but" aria-pressed="false"id="slide_but_2"></button>
-          <button class="slide_but" aria-pressed="false"id="slide_but_3"></button>
+          <button class="slide_but" aria-pressed="false" id="slide_but_2"></button>
+          <button class="slide_but" aria-pressed="false" id="slide_but_3"></button>
         </div>
       </div>
       <div class="head_text_event">
@@ -62,6 +80,7 @@
         }
       });
     </script>
-    <SCript src="slide.js"></SCript>
+    <script src="slide.js"></script>
+    <script src="slide_img.js"></script>
   </body>
 </html>
